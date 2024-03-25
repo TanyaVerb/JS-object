@@ -156,33 +156,174 @@
 // при вводе больше 1000 - " Ого ты богач"
 // Вводимое значение нужно сравнивать с полями объекта, кот в функцию передается
 
-const pocket = {
-  k: 10,
-  k2: 100,
-  k3: 1000,
-};
+// const pocket = {
+//   k: 10,
+//   k2: 100,
+//   k3: 1000,
+// };
 
-const pocket2 = {
-  k: 5,
-  k2: 7,
-  k3: 10,
-};
-function checkMoney(obj) {
-  const value = prompt("Inter value");
-  if (!isNaN(Number(value)) && value !== null && value !== "") {
-    if (+value < obj.k) {
-      console.log("Ничего не купишь");
-    } else if (+value > obj.k && +value < obj.k2) {
-      console.log("Деньги есть - можно поесть");
-    } else if (+value > obj.k2 && +value < obj.k3) {
-      console.log("Пятница");
-    } else if (+value > obj.k3) {
-      console.log("Ого ты богач");
-    }
-  } else {
-    console.log("Вы ввели не числовое значение");
-  }
-}
-checkMoney(pocket);
+// const pocket2 = {
+//   k: 5,
+//   k2: 7,
+//   k3: 10,
+// };
+// function checkMoney(obj) {
+//   const value = prompt("Inter value");
+//   if (!isNaN(Number(value)) && value !== null && value !== "") {
+//     if (+value < obj.k) {
+//       console.log("Ничего не купишь");
+//     } else if (+value > obj.k && +value < obj.k2) {
+//       console.log("Деньги есть - можно поесть");
+//     } else if (+value > obj.k2 && +value < obj.k3) {
+//       console.log("Пятница");
+//     } else if (+value > obj.k3) {
+//       console.log("Ого ты богач");
+//     }
+//   } else {
+//     console.log("Вы ввели не числовое значение");
+//   }
+// }
+// checkMoney(pocket);
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// проверка на пустоту функции
+
+// function isEmpty(obj) {
+//   for (let key in obj) {
+//     // если тело цикла начнет выполняться - значит в объекте есть свойства
+//     return false;
+//   }
+//   return true;
+// }
+
+// const pocket = {
+//   k: 10,
+//   k2: 100,
+//   k3: 1000,
+// };
+
+// console.log(isEmpty(pocket));
+// _______________________________________________________________________
+
+// let salaries = {
+//   John: 100,
+//   Ann: 160,
+//   Pete: 130,
+// };
+
+// let sum = 0;
+// for (let key in salaries) {
+//   sum += salaries[key];
+// }
+
+// alert(sum); // 390
+// __________________________________________________________________________
+// Умножаем все числовые свойства на 2
+
+// до вызова функции
+// let menu = {
+//   width: 200,
+//   height: 300,
+//   title: "My menu",
+// };
+
+// function multiplyNumeric(obj) {
+//   for (let key in obj) {
+//     if (typeof obj[key] == "number") {
+//       obj[key] *= 2;
+//     }
+//   }
+// }
+
+// console.log(multiplyNumeric(menu));
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// Методы объектов
+
+// let user = {
+//   name: "John",
+//   age: 30,
+// };
+
+// user.sayHi = function () {
+//   alert("Привет!");
+// };
+
+// user.sayHi(); // Привет!
+
+// +++++++++++++++++++++ или +++++++++++++++++++++++++++++
+
+// let user = {
+//   // ...
+// };
+
+// // сначала, объявляем
+// function sayHi() {
+//   alert("Привет!");
+// }
+
+// // затем добавляем в качестве метода
+// user.sayHi = sayHi;
+
+// user.sayHi(); // Привет!
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// эти объекты делают одно и то же
+
+// user = {
+//   sayHi: function () {
+//     alert("Привет");
+//   },
+// };
+// _________________________________________________________________________
+// сокращённая запись
+// user = {
+//   sayHi() {
+//     // то же самое, что и "sayHi: function(){...}"
+//     alert("Привет");
+//   },
+// };
+
+// console.log(user.sayHi());
+
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// let user = { name: "John" };
+// let admin = { name: "Admin" };
+
+// function sayHi() {
+//   alert(this.name);
+// }
+
+// // используем одну и ту же функцию в двух объектах
+// user.f = sayHi;
+// admin.f = sayHi;
+
+// эти вызовы имеют  разное значение this
+// "this" внутри функции - это объект "перед точкой"
+// user.f(); // John  (this == user)
+// admin.f(); // Admin  (this == admin)
+
+// admin["f"](); // Admin (нет разницы между использованием точки или квадратных скобок для доступа к объекту)
+
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// калькулятор
+
+let calculator = {
+  sum() {
+    return this.a + this.b;
+  },
+
+  mul() {
+    return this.a * this.b;
+  },
+
+  read() {
+    this.a = +prompt("a?", 0);
+    this.b = +prompt("b?", 0);
+  },
+};
+
+calculator.read();
+alert(calculator.sum());
+alert(calculator.mul());
