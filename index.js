@@ -309,21 +309,199 @@
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // калькулятор
 
-let calculator = {
-  sum() {
-    return this.a + this.b;
-  },
+// let calculator = {
+//   sum() {
+//     return this.a + this.b;
+//   },
 
-  mul() {
-    return this.a * this.b;
-  },
+//   mul() {
+//     return this.a * this.b;
+//   },
 
-  read() {
-    this.a = +prompt("a?", 0);
-    this.b = +prompt("b?", 0);
-  },
-};
+//   read() {
+//     this.a = +prompt("a?", 0);
+//     this.b = +prompt("b?", 0);
+//   },
+// };
 
-calculator.read();
-alert(calculator.sum());
-alert(calculator.mul());
+// calculator.read();
+// alert(calculator.sum());
+// alert(calculator.mul());
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// +++++++++++++++++++++++Задача1+++++++++++++++++++++++++++++++++++++++++
+
+const user1 = {
+  name: 'Vlad',
+  salary:0,
+  depatament: 'бухгалтерия'
+}
+const user2 = {
+  name: 'Oleg',
+  salary:100,
+  depatament: 'директория'
+}
+const user3 = {
+  name: 'Dima',
+  salary:50,
+  depatament: 'бухгалтерия',
+  age: undefined
+}
+
+const prise =  {
+  car: 100,
+  hom: 1000,
+  furniture: 20,
+  products: 2,
+  
+}
+
+// ++++++++++++++++++++++++++1ый вариант+++++++++++++++++++++++++
+// const apdatePrice = (obj) => {
+//   for (let key in obj) {
+//         if (typeof obj[key] == "number") {
+//           // obj[key] =obj[key] + (obj[key]*13/100);
+//           let dopPrice = obj[key] * 0.13
+//           obj[key] += dopPrice
+//         }
+//       }
+// }
+
+// apdatePrice(prise);
+// console.log (prise);
+// _________________________________________________
+// +++++++++++++++++++2ой вариант+++++++++++++++++++++++++
+const updatePrice = (obj) => {
+  for (const key in obj) {
+       const extraPrice = obj[key] * 0.13
+       console.log(extraPrice)
+       obj[key] = obj[key] + extraPrice;
+      }
+      console.log(obj);
+}
+updatePrice (prise);
+
+const updatePrice2 = (obj) => { // проверить
+  for (const key in obj) {
+    obj[key] *= 1.13
+       
+      }
+      console.log(obj);
+}
+
+updatePrice2 (prise);
+
+
+// ++++++++++++++++++++++++++++++++++++++
+// console.log('age' in user3);
+
+// for( let key in user3){
+//   console.log(key);
+// }
+
+// console.log('!', key);
+
+// for( let key in user3){
+//   console.log('key', key);
+//  console.log('value' ,user3[key])
+// }
+
+// console.log('!', key);
+
+// const minSalary = 50;
+// const maxSalary = 100;
+
+// const setSalary = (obj)=>{
+// if (!obj.salary && obj.salary !== 0 ){
+//   obj.salary = 50
+// }
+// console.log(obj)
+// }
+
+// const setSalary = (obj)=>{
+//   for (let key in obj){
+//     if (key ===' salary' && (!obj[key] && obj[key] !== 0) ){
+//         obj.salary = 50
+//       } 
+//   }
+//   console.log(obj);
+// }
+
+// const setSalary = (obj) => {
+//   if ('salary' in obj){
+//     console.log('Есть такое поле');
+//     if (!obj [ 'salary']&& obj.salary !== 0 ){
+//       obj.salary = minSalary
+//     }
+//     console.log(obj);
+//   }
+// }
+
+// setSalary(user1)
+// // user1.salary 50
+
+// setSalary(user2)
+// // user1.salary 50
+
+// setSalary(user3)
+
+// +++++++++++++++++++++Массивы++++++++++++++++++++++++++++++++++++
+// const userList = [ user1, user2, user3]
+
+// console.log (userList [2].age );
+
+// const userName = {name:'Vlad'};
+// let userName2 = userName;
+
+// console.log(userName);
+// console.log(userName===userName2);
+// console.log(userName2);
+
+// userName.age = 31;
+// console.log(userName===userName2);
+// userName2.job = 'FE';
+
+// const userName3 = userName2;
+// userName2 = 'Primat'
+
+// console.log('userName');
+// console.log(userName===userName2);
+// console.log(userName2);
+
+// userName3.name = "TTTTT"
+
+
+// +++++++++++++++++++++++++++++++++++++++++++++++
+const maArr = []
+const testObj = {
+  foo(){
+console.log ('Hello')
+  },
+  age:31
+}
+testObj.foo()
+
+
+
+const userList = [ user1, user2, user3]
+// console.log(userList.length);
+console.log(userList.push('4-ый элемент'));
+// console.log(userList);
+
+for (let i = 0; i <= userList.length - 1; i++ ){
+      if ( typeof userList[i] === 'object'){
+if (userList[i].depatament === 'бухгалтерия'){
+  userList[i].salary = 100
+}else {
+  userList[i].salary = 10
+}
+      }else{
+        continue
+      }
+
+    }
+
+    console.log(userList);
+    console.log(user1);
+    console.log(user2);
+    console.log(user3);
