@@ -115,23 +115,23 @@
 // console.log(simpleVar[5]());
 // console.log(user1.arr);
 // ________________________________________________________
-const user2 = {
-  name: "Vlad",
-  newObj: { wife: true },
-  method1: function () {
-    console.log("method1", user1);
-  },
-  method2() {
-    console.log("method2", user1);
-  },
-  method3: () => {
-    console.log("method3", user1);
-  },
-  arr: [2, "2,", null, undefined, false, NaN, Infinity, foo1],
-};
+// const user2 = {
+//   name: "Vlad",
+//   newObj: { wife: true },
+//   method1: function () {
+//     console.log("method1", user1);
+//   },
+//   method2() {
+//     console.log("method2", user1);
+//   },
+//   method3: () => {
+//     console.log("method3", user1);
+//   },
+//   arr: [2, "2,", null, undefined, false, NaN, Infinity, foo1],
+// };
 
-let simpleVar2 = [2, "2,", null, undefined, false, NaN, Infinity, foo1];
-console.log(user2.arr);
+// let simpleVar2 = [2, "2,", null, undefined, false, NaN, Infinity, foo1];
+// console.log(user2.arr);
 
 // console.log ({} === {});// не равны друг другу
 // console.log ([] === []);// не равны друг другу
@@ -156,30 +156,33 @@ console.log(user2.arr);
 // при вводе больше 1000 - " Ого ты богач"
 // Вводимое значение нужно сравнивать с полями объекта, кот в функцию передается
 
-// const pocket = {
-//   k: 10,
-//   k2: 100,
-//   k3: 1000,
-// };
+const pocket = {
+  k: 10,
+  k2: 100,
+  k3: 1000,
+};
 
-// const pocket2 = {
-//   k: 5,
-//   k2: 7,
-//   k3: 10,
-// };
-// function checkMoney(obj) {
-//   const value = prompt("Inter value");
-//   if (+value < obj.k) {
-//     console.log("Ничего не купишь");
-//   } else if (+value > obj.k && +value < obj.k2) {
-//     console.log("Деньги есть - можно поесть");
-//   } else if (+value > obj.k2 && +value < obj.k3) {
-//     console.log("Пятница");
-//   } else if (+value > obj.k3) {
-//     console.log("Ого ты богач");
-//   }
-// }
-
-// checkMoney(pocket);
+const pocket2 = {
+  k: 5,
+  k2: 7,
+  k3: 10,
+};
+function checkMoney(obj) {
+  const value = prompt("Inter value");
+  if (!isNaN(Number(value)) && value !== null && value !== "") {
+    if (+value < obj.k) {
+      console.log("Ничего не купишь");
+    } else if (+value > obj.k && +value < obj.k2) {
+      console.log("Деньги есть - можно поесть");
+    } else if (+value > obj.k2 && +value < obj.k3) {
+      console.log("Пятница");
+    } else if (+value > obj.k3) {
+      console.log("Ого ты богач");
+    }
+  } else {
+    console.log("Вы ввели не числовое значение");
+  }
+}
+checkMoney(pocket);
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++
