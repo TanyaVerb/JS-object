@@ -332,65 +332,65 @@
 // +++++++++++++++++++++++Задача1+++++++++++++++++++++++++++++++++++++++++
 
 const user1 = {
-  name: 'Vlad',
-  salary:0,
-  depatament: 'бухгалтерия'
-}
+  name: "Vlad",
+  salary: 0,
+  department: "бухгалтерия",
+};
 const user2 = {
-  name: 'Oleg',
-  salary:100,
-  depatament: 'директория'
-}
+  name: "Oleg",
+  salary: 100,
+  department: "директория",
+};
 const user3 = {
-  name: 'Dima',
-  salary:50,
-  depatament: 'бухгалтерия',
-  age: undefined
-}
+  name: "Dima",
+  salary: 50,
+  department: "бухгалтерия",
+  age: undefined,
+};
 
-const prise =  {
+const prise = {
   car: 100,
   hom: 1000,
   furniture: 20,
   products: 2,
-  
-}
+};
 
 // ++++++++++++++++++++++++++1ый вариант+++++++++++++++++++++++++
-// const apdatePrice = (obj) => {
+// const updatePrice = (obj) => {
 //   for (let key in obj) {
 //         if (typeof obj[key] == "number") {
 //           // obj[key] =obj[key] + (obj[key]*13/100);
+
+// _________________________2ой вариант_________________________________________
 //           let dopPrice = obj[key] * 0.13
 //           obj[key] += dopPrice
 //         }
 //       }
 // }
 
-// apdatePrice(prise);
+// updatePrice(prise);
 // console.log (prise);
 // _________________________________________________
 // +++++++++++++++++++2ой вариант+++++++++++++++++++++++++
 const updatePrice = (obj) => {
   for (const key in obj) {
-       const extraPrice = obj[key] * 0.13
-       console.log(extraPrice)
-       obj[key] = obj[key] + extraPrice;
-      }
-      console.log(obj);
-}
-updatePrice (prise);
+    const extraPrice = obj[key] * 0.13;
+    console.log(extraPrice);
+    obj[key] = obj[key] + extraPrice;
+  }
+  console.log(obj);
+};
+updatePrice(prise);
 
-const updatePrice2 = (obj) => { // проверить
+const updatePrice2 = (obj) => {
+  // проверить
   for (const key in obj) {
-    obj[key] *= 1.13
-       
-      }
-      console.log(obj);
-}
+    obj[key] *= 1.13;
+  }
+  console.log(obj);
+};
 
-updatePrice2 (prise);
-
+updatePrice2(prise);
 
 // ++++++++++++++++++++++++++++++++++++++
 // console.log('age' in user3);
@@ -422,7 +422,7 @@ updatePrice2 (prise);
 //   for (let key in obj){
 //     if (key ===' salary' && (!obj[key] && obj[key] !== 0) ){
 //         obj.salary = 50
-//       } 
+//       }
 //   }
 //   console.log(obj);
 // }
@@ -470,38 +470,34 @@ updatePrice2 (prise);
 
 // userName3.name = "TTTTT"
 
-
 // +++++++++++++++++++++++++++++++++++++++++++++++
-const maArr = []
+const maArr = [];
 const testObj = {
-  foo(){
-console.log ('Hello')
+  foo() {
+    console.log("Hello");
   },
-  age:31
-}
-testObj.foo()
+  age: 31,
+};
+testObj.foo();
 
-
-
-const userList = [ user1, user2, user3]
+const userList = [user1, user2, user3];
 // console.log(userList.length);
-console.log(userList.push('4-ый элемент'));
+console.log(userList.push("4-ый элемент"));
 // console.log(userList);
 
-for (let i = 0; i <= userList.length - 1; i++ ){
-      if ( typeof userList[i] === 'object'){
-if (userList[i].depatament === 'бухгалтерия'){
-  userList[i].salary = 100
-}else {
-  userList[i].salary = 10
-}
-      }else{
-        continue
-      }
-
+for (let i = 0; i <= userList.length - 1; i++) {
+  if (typeof userList[i] === "object") {
+    if (userList[i].department === "бухгалтерия") {
+      userList[i].salary = 100;
+    } else {
+      userList[i].salary = 10;
     }
+  } else {
+    continue;
+  }
+}
 
-    console.log(userList);
-    console.log(user1);
-    console.log(user2);
-    console.log(user3);
+console.log(userList);
+console.log(user1);
+console.log(user2);
+console.log(user3);
